@@ -64,31 +64,36 @@ public class bills extends ActionBarActivity {
             Spinner spinner = (Spinner) rootView.findViewById(R.id.customspinnerBills);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),R.array.Menu_Array,R.layout.spinner);
             spinner.setAdapter(adapter);
-            spinner.setSelection(1);
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Intent myIntent = null;
-
-                    switch (position) {
-                        case 0:
-                            myIntent = new Intent(getActivity(), main.class);
-                            startActivity(myIntent);
-                            break;
-                        case 1:
-                            System.out.println("Bills");
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        case 4:
-                            break;
-                    }
-                }
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
+            spinner.setSelection(adapter.getPosition("Bills"));
+            spinner.setOnItemSelectedListener(new MenuListener(getActivity(),adapter.getPosition("Bills")));
+//                    new AdapterView.OnItemSelectedListener() {
+//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                    Intent myIntent = null;
+//
+//                    switch (position) {
+//                        case 1:
+//                            myIntent = new Intent(getActivity(), main.class);
+//                            break;
+//                        case 2:
+//                            myIntent = new Intent(getActivity(),bills.class);
+//                            break;
+//                        case 3:
+//                            myIntent = new Intent(getActivity(),IOU.class);
+//                            break;
+//                        case 4:
+//                            myIntent = new Intent(getActivity(),Shopping.class);
+//                            break;
+//                        case 5:
+//                            myIntent = new Intent(getActivity(),Events.class);
+//                            break;
+//                    }
+//                    if(myIntent != null)
+//                        startActivity(myIntent);
+//                }
+//                public void onNothingSelected(AdapterView<?> parent) {
+//
+//                }
+//            });
 
             return rootView;
         }

@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 public class Shopping extends ActionBarActivity {
@@ -58,6 +59,11 @@ public class Shopping extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_shopping, container, false);
+            Spinner spinner = (Spinner) rootView.findViewById(R.id.customspinnerShopping);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Menu_Array, R.layout.spinner);
+            spinner.setAdapter(adapter);
+            spinner.setSelection(adapter.getPosition("Shopping"));
+            spinner.setOnItemSelectedListener(new MenuListener(getActivity(),adapter.getPosition("Shopping")));
             return rootView;
         }
     }

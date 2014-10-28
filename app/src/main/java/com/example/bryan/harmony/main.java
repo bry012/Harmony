@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -20,6 +21,7 @@ public class main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -63,28 +65,8 @@ public class main extends ActionBarActivity {
             Spinner spinner = (Spinner) rootView.findViewById(R.id.customspinner);
             ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),R.array.Menu_Array,R.layout.spinner);
             spinner.setAdapter(adapter);
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    switch (position) {
-                        case 0:
-                            break;
-                        case 1:
-                            Intent myIntent = new Intent(getActivity(), bills.class);
-                            startActivity(myIntent);
-                            System.out.println("Bills");
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                        case 4:
-                            break;
-                    }
-                }
-
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
+            spinner.setSelection(adapter.getPosition("Home"));
+            spinner.setOnItemSelectedListener(new MenuListener(getActivity(), adapter.getPosition("Home")));
 
             return rootView;
     }

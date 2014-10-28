@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 public class IOU extends ActionBarActivity {
@@ -58,7 +59,13 @@ public class IOU extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_iou, container, false);
+            Spinner spinner = (Spinner) rootView.findViewById(R.id.customspinnerIOU);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Menu_Array, R.layout.spinner);
+            spinner.setAdapter(adapter);
+            spinner.setSelection(adapter.getPosition("I.O.U."));
+            spinner.setOnItemSelectedListener(new MenuListener(getActivity(),adapter.getPosition("I.O.U.")));
             return rootView;
+
         }
     }
 }

@@ -10,7 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 public class Events extends ActionBarActivity {
@@ -58,6 +59,11 @@ public class Events extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_events, container, false);
+            Spinner spinner = (Spinner) rootView.findViewById(R.id.customspinnerEvents);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),R.array.Menu_Array,R.layout.spinner);
+            spinner.setAdapter(adapter);
+            spinner.setSelection(adapter.getPosition("Events"));
+            spinner.setOnItemSelectedListener(new MenuListener(getActivity(),adapter.getPosition("Events")));
             return rootView;
         }
     }
