@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.bryan.harmony.bills$PlaceholderFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+
+        <Spinner
+            android:id="@+id/customspinnerBills"
+            android:layout_width="92dp"
+            android:layout_height="40dp"
+            android:background="@drawable/spinner_background"
+            android:layout_gravity="top" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textSize="14sp"
+            android:typeface="serif"
+            android:textStyle="bold|italic"
+            android:textColor="#fffdffff"
+            android:background="@drawable/spinner_background"
+            android:gravity="center"
+            android:editable="false"
+            android:enabled="false"
+            android:inputType="none" />
+    </LinearLayout>
+    <TextView
+        android:text="@string/hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

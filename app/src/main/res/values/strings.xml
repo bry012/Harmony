@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Harmony</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="Menu_Array">
+        <item>Home</item>
+        <item>Bills</item>
+        <item>I.O.U.</item>
+        <item>Shopping</item>
+        <item>Events</item>
+    </string-array>
+    <string-array name="Main_Notifications">
+        <item>Need Toilet Paper</item>
+        <item>Eletric Bill</item>
+        <item>Heat Bill</item>
+        <item>Water Bill</item>
+        <item>Roommate Dance Party</item>
+        <item>Movie Night</item>
+        <item>Fun Times</item>
+        <item>More Fun Times</item>
+        <item>Feed Cat</item>
+        <item>IOU:Kaci Owes Me</item>
+        <item>EVENTS: Another Dance Party!</item>
+        <item>Bills: Internet Bill</item>
+    </string-array>
+
+    <string name="title_activity_bills">bills</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_iou">IOU</string>
+    <string name="title_activity_shopping">Shopping</string>
+    <string name="title_activity_events">Events</string>
+
+</resources>
