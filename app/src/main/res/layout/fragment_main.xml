@@ -38,18 +38,37 @@
 
         </LinearLayout>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="325dp"
-            android:id="@+id/listView2"
-            android:entries="@array/Main_Notifications"
-            android:layout_weight="0.96" />
+        <fragment
+            android:layout_width="fill_parent"
+            android:layout_height="430dp"
+            android:id="@+id/post_list"
+            android:name="com.example.bryan.harmony.ItemListFragment"
+            android:layout_weight="0.95"
+            android:layout_gravity="top">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/PostField"
-            android:text="Post" />
+            </fragment>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:weightSum="1"
+            android:layout_gravity="right">
+
+            <EditText
+                android:layout_width="308dp"
+                android:layout_height="58dp"
+                android:id="@+id/PostField"
+                android:text="Post"
+                android:layout_weight="1.07" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="->"
+                android:id="@+id/button"
+                android:layout_gravity="right" />
+        </LinearLayout>
 
     </LinearLayout>
 
